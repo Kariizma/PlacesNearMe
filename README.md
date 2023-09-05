@@ -1,23 +1,16 @@
-# OpenWeatherApiApp
-An Android App that displays weather data based on the OpenWeatherApi
+# PlacesNearMe
+An Android App that displays restaurant list data with a search bar and details screen.
 
 ### User Stories
 
-- [x] Create a browser or native-app-based application to serve as a basic weather app. (Android)
-- [x] Search Screen
-  - [x] Allow customers to enter a US city
-  - [x] Call the openweathermap.org API and display the information you think a user would be interested in seeing. Be sure to have the app download and display a weather icon.
-- [x] Auto-load the last city searched upon app launch.
-- [x] Ask the User for location access, If the User gives permission to access the location, then retrieve weather data by default
+- [x] Retrieve the place list data from the API provided in the assessment and display it in the listview
+- [x] Users should be able to filter which places they see using the search bar.
+- [x] When a user selects a place on the list of places, they should be able to then view all the details associated with that place.
   
 
-### Location On App Walkthrough
+### Application Walkthrough
 
-<img src="https://github.com/Kariizma/OpenWeatherApiApp/blob/master/LocationOnWeatherApp.gif" width=250><br>
-
-### Location OFF App Walkthrough
-
-<img src="https://github.com/Kariizma/OpenWeatherApiApp/blob/master/LocationOffWeatherApp.gif" width=250><br>
+<img src="https://github.com/Kariizma/PlacesNearMe/blob/master/PlacesNearMe_walkthrough" width=250><br>
 
 ## Dependencies
 - [Retrofit 2](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java/Kotlin
@@ -27,3 +20,4 @@ An Android App that displays weather data based on the OpenWeatherApi
 -  [Mockito](https://site.mockito.org/) - Mocking for testing
 -  [Material 3](https://m3.material.io/) - Material 3 UI
 -  [Jetpack Compose]
+-  [Jetpack Navigation]
