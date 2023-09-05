@@ -10,7 +10,7 @@ An Android App that displays restaurant list data with a search bar and details 
 
 ### Application Walkthrough
 
-<img src="https://github.com/Kariizma/OpenWeatherApiApp/blob/master/LocationOnWeatherApp.gif" width=250><br>
+<img src="https://github.com/Kariizma/PlacesNearMe/blob/master/PlacesNearMe_walkthrough" width=250><br>
 
 ## Dependencies
 - [Retrofit 2](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java/Kotlin
