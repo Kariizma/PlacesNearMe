@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -43,9 +44,11 @@ class PlacesViewModel
                     val imageResponse = placesApi.getImageById(place.id)
                     imagesMapTemp[place.id] = imageResponse.img
                 }
-
-                _places.value = placesList
-                _imagesMap.value = imagesMapTemp
+                //update UI on main thread.
+                withContext(Dispatchers.Main) {
+                    _places.value = placesList
+                    _imagesMap.value = imagesMapTemp
+                }
                 Log.v("API Data:", "Success")
             } catch (e: Exception) {
                 Log.e("API Data:", "Error: $e")
