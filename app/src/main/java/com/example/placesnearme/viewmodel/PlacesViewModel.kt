@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.placesnearme.api.PlacesApi
 import com.example.placesnearme.model.Place
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -32,7 +33,7 @@ class PlacesViewModel
     }
 
     private fun getPlaces() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO){
             Log.v("API Data:", "Loading...")
             try {
                 val placesList = placesApi.getPlaces().places
