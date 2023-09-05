@@ -21,3 +21,10 @@ An Android App that displays restaurant list data with a search bar and details 
 -  [Material 3](https://m3.material.io/) - Material 3 UI
 -  [Jetpack Compose]
 -  [Jetpack Navigation]
+
+  ## Improvements I can think of if I had more time
+  - Error Handling: I could have added error handling to the UI by showing a loading screen or an error screen if the data from the API isn't fetched or if the user doesn't have internet.
+  - API Efficiency: Im pretty sure im making an API call for every image that im getting using the ID. Im wondering if it would be more optimal to put the images within the places json.
+  - Testing: I would write unit tests and UI tests with tools like Junit, Mockito, and Espresso to test all the work I have done and ensure it's working properly.
+  - Accessibility: I would need to add the proper content descriptions to all interactive elements and ensure the app is usable for all users including those who have disabilities.
+  - Repository: I would need to set up a local database using room with the API so the users can still use the application while in an offline setting.
