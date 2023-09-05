@@ -28,3 +28,4 @@ An Android App that displays restaurant list data with a search bar and details 
   - Testing: I would write unit tests and UI tests with tools like Junit, Mockito, and Espresso to test all the work I have done and ensure it's working properly.
   - Accessibility: I would need to add the proper content descriptions to all interactive elements and ensure the app is usable for all users including those who have disabilities.
   - Repository: I would need to set up a local database using room with the API so the users can still use the application while in an offline setting.
+  - UI/UX: I would have spent more time picking the right colors and styles for the application to feel more welcoming to the users.
