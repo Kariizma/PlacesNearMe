@@ -6,5 +6,6 @@ data class Place(
     val name: String,
     val price: String,
     val reviews: Int,
-    val stars: Int
+    val stars: Int,
+    val description: String,
 )

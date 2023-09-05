@@ -27,6 +27,9 @@ class PlacesViewModel
         getPlaces()
     }
 
+    fun getPlaceById(placeId: String?): Place? {
+        return places.value.find { it.id == placeId }
+    }
 
     private fun getPlaces() {
         viewModelScope.launch {

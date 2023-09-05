@@ -10,29 +10,27 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.rememberImagePainter
 import com.example.placesnearme.R
+import com.example.placesnearme.model.Place
 
 
+@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun PlaceListItem(
-    name: String,
-    address: String,
-    stars: Int,
-    reviews: Int,
-    price: String,
-    imageResId: Int,
-    onClick: (() -> Unit)? = null
+    place: Place,
+    imageUrl: String?,
+    onClick: (Place) -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp, 8.dp)
-            .clickable { onClick?.invoke() }
+            .clickable { onClick(place) }
             .background(MaterialTheme.colorScheme.surface)
     ) {
         Column(
@@ -40,28 +38,29 @@ fun PlaceListItem(
                 .weight(1f)
                 .padding(end = 16.dp)
         ) {
-            Text(text = name, fontSize = 20.sp)
+            Text(text = place.name, fontSize = 20.sp)
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = address)
+            Text(text = place.address)
             Spacer(modifier = Modifier.height(4.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
-                StarsLayout(rating = stars)
+                StarsLayout(rating = place.stars)
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(text = reviews.toString())
+                Text(text = place.reviews.toString())
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(text = price)
+                Text(text = place.price)
             }
         }
 
-        Image(
-            painter = painterResource(id = imageResId),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.size(80.dp, 80.dp)
-        )
+        imageUrl?.let {
+            Image(
+                painter = rememberImagePainter(data = it),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.size(80.dp, 80.dp)
+            )
+        }
     }
 }
-
 
 @Composable
 fun StarsLayout(rating: Int, modifier: Modifier = Modifier) {
@@ -79,18 +78,4 @@ fun StarsLayout(rating: Int, modifier: Modifier = Modifier) {
             )
         }
     }
-}
-
-@Preview(showBackground = true, name = "Place List Item Preview")
-@Composable
-fun PlaceListItemPreview() {
-    // Provide mock data for the preview
-    PlaceListItem(
-        name = "Beautiful Place",
-        address = "123 Compose Street",
-        stars = 3,
-        reviews = 20,
-        price = "$$",
-        imageResId = R.drawable.ic_launcher_foreground
-    )
 }
